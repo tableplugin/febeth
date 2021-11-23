@@ -3,13 +3,17 @@ const path = require("path");
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 // Dev address: 0x1419650898159D9A3Fc30e54DE9a4156bC2e525f
-const mainnetProvider = new HDWalletProvider({
+const bscMainnetProvider = new HDWalletProvider({
   mnemonic: process.env.DEV_MNEMONIC,
   providerOrUrl: 'https://bsc-dataseed.binance.org/'
 });
-const testnetProvider = new HDWalletProvider({
+const bscTestnetProvider = new HDWalletProvider({
   mnemonic: process.env.DEV_MNEMONIC,
   providerOrUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+});
+const celoMainnetProvider = new HDWalletProvider({
+  mnemonic: process.env.DEV_MNEMONIC,
+  providerOrUrl: 'https://forno.celo.org/'
 });
 
 module.exports = {
@@ -22,14 +26,20 @@ module.exports = {
       port: 8545,
       network_id: "*"
     },
+    celoMainnet: {
+      provider: () => celoMainnetProvider,
+      network_id: "42220",
+      gas: 10000000,
+      gasPrice: 10000000000,
+    },
     binanceMainnet: {
-      provider: () => mainnetProvider,
+      provider: () => bscMainnetProvider,
       network_id: "56",
       gas: 10000000,
       gasPrice: 10000000000,
     },
     binanceTestnet: {
-      provider: () => testnetProvider,
+      provider: () => bscTestnetProvider,
       network_id: "97",
       gas: 10000000,
       gasPrice: 10000000000,
