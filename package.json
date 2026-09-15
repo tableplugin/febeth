@@ -29,6 +29,7 @@
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
     "dotenv": "^8.2.0",
+    "fs-extra": "^4.0.3",
     "mocha": "^8.3.2",
     "truffle": "^5.2.4",
     "truffle-plugin-verify": "^0.5.7"
