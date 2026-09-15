@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-/usr/bin/node node_modules/mocha/bin/mocha js-simulate/*.js
+pnpm exec mocha js-simulate/*.js
 
 truffle test
 
