@@ -1,0 +1,15 @@
+# pnpm blocks dependency build scripts by default (and pnpm 11+ fails the
+# install unless each one is decided). Deny them all except truffle, whose
+# postinstall pre-fetches the solc compiler exactly as it did under npm.
+allowBuilds:
+  '@apollo/protobufjs': false
+  bufferutil: false
+  core-js: false
+  keccak: false
+  level: false
+  leveldown: false
+  secp256k1: false
+  sqlite3: false
+  truffle: true
+  utf-8-validate: false
+  web3: false
